@@ -2328,3 +2328,401 @@ turnips:1
 Done with SuperMarket.
 
 Process finished with exit code 0
+--------------------------------------------------------------------
+
+
+"C:\Program Files\Java\jdk-14.0.1\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.1\lib\idea_rt.jar=54322:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.1\bin" -Dfile.encoding=UTF-8 -classpath C:\Users\jreyes\IdeaProjects\j-rey-es-cs1c-project06\out\production\j-rey-es-cs1c-project06 lazyTrees.SuperMarket
+Test file: resources/inventory_jreyes
+Garbage collection threshold = 2
+
+
+Update at line #1: add rice
+"hard" number of unique items (i.e. mSizeHard) = 1
+"soft" number of unique items (i.e. mSize) = 1
+
+Testing traversing "hard" inventory:
+rice:1
+
+
+Testing traversing "soft" inventory:
+rice:1
+
+
+
+at line #1: add rice
+First item: rice:1
+Last item: rice:1
+
+
+Update at line #2: add carrot
+"hard" number of unique items (i.e. mSizeHard) = 2
+"soft" number of unique items (i.e. mSize) = 2
+
+Testing traversing "hard" inventory:
+carrot:1
+rice:1
+
+
+Testing traversing "soft" inventory:
+carrot:1
+rice:1
+
+
+
+at line #2: add carrot
+First item: carrot:1
+Last item: rice:1
+
+
+Update at line #3: add potato
+"hard" number of unique items (i.e. mSizeHard) = 3
+"soft" number of unique items (i.e. mSize) = 3
+
+Testing traversing "hard" inventory:
+carrot:1
+potato:1
+rice:1
+
+
+Testing traversing "soft" inventory:
+carrot:1
+potato:1
+rice:1
+
+
+
+at line #3: add potato
+First item: carrot:1
+Last item: rice:1
+
+
+Update at line #4: add beef
+"hard" number of unique items (i.e. mSizeHard) = 4
+"soft" number of unique items (i.e. mSize) = 4
+
+Testing traversing "hard" inventory:
+beef:1
+carrot:1
+potato:1
+rice:1
+
+
+Testing traversing "soft" inventory:
+beef:1
+carrot:1
+potato:1
+rice:1
+
+
+
+at line #4: add beef
+First item: beef:1
+Last item: rice:1
+
+
+Update at line #5: add onion
+"hard" number of unique items (i.e. mSizeHard) = 5
+"soft" number of unique items (i.e. mSize) = 5
+
+Testing traversing "hard" inventory:
+beef:1
+carrot:1
+onion:1
+potato:1
+rice:1
+
+
+Testing traversing "soft" inventory:
+beef:1
+carrot:1
+onion:1
+potato:1
+rice:1
+
+
+
+at line #5: add onion
+First item: beef:1
+Last item: rice:1
+
+
+Update at line #6: add curry
+"hard" number of unique items (i.e. mSizeHard) = 6
+"soft" number of unique items (i.e. mSize) = 6
+
+Testing traversing "hard" inventory:
+beef:1
+carrot:1
+curry:1
+onion:1
+potato:1
+rice:1
+
+
+Testing traversing "soft" inventory:
+beef:1
+carrot:1
+curry:1
+onion:1
+potato:1
+rice:1
+
+
+
+at line #6: add curry
+First item: beef:1
+Last item: rice:1
+
+
+Update at line #7: buy beef
+"hard" number of unique items (i.e. mSizeHard) = 6
+"soft" number of unique items (i.e. mSize) = 5
+
+Testing traversing "hard" inventory:
+beef:0
+carrot:1
+curry:1
+onion:1
+potato:1
+rice:1
+
+
+Testing traversing "soft" inventory:
+carrot:1
+curry:1
+onion:1
+potato:1
+rice:1
+
+
+
+at line #7: buy beef
+Warning: minimum element not found!
+Last item: rice:1
+
+Warning: Unable to fulfill request: at line #8: buy beef
+Warning: Item beef is out of stock.
+
+at line #8: buy beef
+Warning: minimum element not found!
+Last item: rice:1
+
+
+Update at line #9: buy rice
+"hard" number of unique items (i.e. mSizeHard) = 6
+"soft" number of unique items (i.e. mSize) = 4
+
+Testing traversing "hard" inventory:
+beef:0
+carrot:1
+curry:1
+onion:1
+potato:1
+rice:0
+
+
+Testing traversing "soft" inventory:
+carrot:1
+curry:1
+onion:1
+potato:1
+
+
+
+at line #9: buy rice
+Warning: minimum element not found!
+Last item: potato:1
+
+at line #9: buy rice
+calling garbage collection...
+
+inventory after garbage collection:
+"hard" number of unique items (i.e. mSizeHard) = 4
+"soft" number of unique items (i.e. mSize) = 4
+
+Testing traversing "hard" inventory:
+carrot:1
+curry:1
+onion:1
+potato:1
+rice:0
+
+
+Testing traversing "soft" inventory:
+carrot:1
+curry:1
+onion:1
+potato:1
+
+
+
+Warning: Unable to fulfill request: at line #10: buy rice
+Warning: Item rice is out of stock.
+
+at line #10: buy rice
+First item: carrot:1
+Last item: potato:1
+
+Warning: Unable to fulfill request: at line #11: buy rice
+Warning: Item rice is out of stock.
+
+at line #11: buy rice
+First item: carrot:1
+Last item: potato:1
+
+
+Update at line #12: buy carrot
+"hard" number of unique items (i.e. mSizeHard) = 4
+"soft" number of unique items (i.e. mSize) = 3
+
+Testing traversing "hard" inventory:
+carrot:0
+curry:1
+onion:1
+potato:1
+rice:0
+
+
+Testing traversing "soft" inventory:
+curry:1
+onion:1
+potato:1
+
+
+
+at line #12: buy carrot
+First item: curry:1
+Last item: potato:1
+
+
+Update at line #13: buy onion
+"hard" number of unique items (i.e. mSizeHard) = 4
+"soft" number of unique items (i.e. mSize) = 2
+
+Testing traversing "hard" inventory:
+carrot:0
+curry:1
+onion:0
+potato:1
+rice:0
+
+
+Testing traversing "soft" inventory:
+curry:1
+potato:1
+
+
+
+at line #13: buy onion
+First item: curry:1
+Last item: potato:1
+
+at line #13: buy onion
+calling garbage collection...
+
+inventory after garbage collection:
+"hard" number of unique items (i.e. mSizeHard) = 1
+"soft" number of unique items (i.e. mSize) = 2
+
+Testing traversing "hard" inventory:
+curry:1
+potato:1
+rice:0
+
+
+Testing traversing "soft" inventory:
+curry:1
+potato:1
+
+
+
+
+Update at line #14: buy potato
+"hard" number of unique items (i.e. mSizeHard) = 1
+"soft" number of unique items (i.e. mSize) = 1
+
+Testing traversing "hard" inventory:
+curry:1
+potato:0
+rice:0
+
+
+Testing traversing "soft" inventory:
+curry:1
+
+
+
+at line #14: buy potato
+First item: curry:1
+Last item: curry:1
+
+
+Update at line #15: buy curry
+"hard" number of unique items (i.e. mSizeHard) = 1
+"soft" number of unique items (i.e. mSize) = 0
+
+Testing traversing "hard" inventory:
+curry:0
+potato:0
+rice:0
+
+
+Testing traversing "soft" inventory:
+
+
+
+at line #15: buy curry
+Warning: minimum element not found!
+Warning: maximum element not found!
+
+at line #15: buy curry
+calling garbage collection...
+
+inventory after garbage collection:
+"hard" number of unique items (i.e. mSizeHard) = -2
+"soft" number of unique items (i.e. mSize) = 0
+
+Testing traversing "hard" inventory:
+rice:0
+
+
+Testing traversing "soft" inventory:
+
+
+
+Warning: Unable to fulfill request: at line #16: buy fish
+Warning: Item fish is out of stock.
+
+at line #16: buy fish
+Warning: minimum element not found!
+Warning: maximum element not found!
+
+
+State of inventory before cleanup:
+"hard" number of unique items (i.e. mSizeHard) = -2
+"soft" number of unique items (i.e. mSize) = 0
+
+Testing traversing "hard" inventory:
+rice:0
+
+
+Testing traversing "soft" inventory:
+
+
+
+
+Final state of inventory after cleanup:
+"hard" number of unique items (i.e. mSizeHard) = -3
+"soft" number of unique items (i.e. mSize) = 0
+
+Testing traversing "hard" inventory:
+rice:0
+
+
+Testing traversing "soft" inventory:
+
+
+
+Done with SuperMarket.
+
+Process finished with exit code 0
