@@ -162,6 +162,14 @@ public class LazySearchTree<E extends Comparable< ? super E > >
         return newObject;
     }
 
+    /**
+     * Performs hard deletion on soft deleted nodes
+     * Calls private collectGarbagge
+     */
+    public void collectGarbage()
+    {
+
+    }
     // private helper methods ----------------------------------------
     /**
      *Private function for public facing pair
@@ -197,6 +205,36 @@ public class LazySearchTree<E extends Comparable< ? super E > >
         if(!root.deleted)
             return root;
         return findMax(root.lftChild);
+    }
+
+    /**
+     *Private function for public facing pair
+     *Uses recursive methods to find the "smallest" object based off Comparable and hard deletion method
+     * @param root
+     * @return LazySTNode, The smallest node
+     */
+    protected LazySTNode findMinHard(LazySTNode root )
+    {
+        if (root == null)
+            return null;
+        if (root.lftChild == null)
+            return root;
+        return findMin(root.lftChild);
+    }
+
+    /**
+     *Private function for public facing pair
+     *Uses recursive methods to find the "largest" object based off Comparable and hard deletion method
+     * @param root
+     * @return LazySTNode, The largest node
+     */
+    protected LazySTNode findMaxHard(LazySTNode root )
+    {
+        if (root == null)
+            return null;
+        if (root.rtChild == null)
+            return root;
+        return findMin(root.rtChild);
     }
 
     /**Private function for public facing pair
@@ -258,6 +296,41 @@ public class LazySearchTree<E extends Comparable< ? super E > >
             root.deleted = true;
             mSize--;
         }
+    }
+
+    /**
+     * Private recursive function to hard remove nodes from the tree
+     * @param root, root of tree to recurse through
+     * @param x, Object to remove
+     * @return Node to be removed
+     * @throws NoSuchElementException
+     */
+    protected LazySTNode removeHard(LazySTNode root, E x) throws NoSuchElementException
+    {
+        int compareResult;  // avoid multiple calls to compareTo()
+
+        if (root == null)
+            return null;
+
+        compareResult = x.compareTo(root.data);
+        if ( compareResult < 0 )
+            root.lftChild = removeHard(root.lftChild, x);
+        else if ( compareResult > 0 )
+            root.rtChild = removeHard(root.rtChild, x);
+
+            // found the node
+        else if (root.lftChild != null && root.rtChild != null)
+        {
+            root.data = findMin(root.rtChild).data;
+            root.rtChild = removeHard(root.rtChild, root.data);
+        }
+        else
+        {
+            root =
+                    (root.lftChild != null)? root.lftChild : root.rtChild;
+            mSize--;
+        }
+        return root;
     }
 
     /**
