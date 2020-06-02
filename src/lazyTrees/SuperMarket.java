@@ -26,7 +26,7 @@ public class SuperMarket
 	// The maximum number of items soft removed before calling collectGarbage()
 	// TODO: Test your implementation with varying number of items to be deleted
 	//       before calling garbage collection.
-	private static final int GARBAGE_COLLECTION_THRESHOLD = 4;
+	private static final int GARBAGE_COLLECTION_THRESHOLD = 2;
 
 	// Keeps track of the count of soft deleted item
 	private int countDeleted;
@@ -211,8 +211,10 @@ public class SuperMarket
 		//final String TESTFILE = "resources/inventory_short.txt";
 
 		// NOTE: An example of testing the boundary condition when removing an item that may not exist
-		final String TESTFILE = "resources/inventory_invalid_removal.txt";
+		//final String TESTFILE = "resources/inventory_invalid_removal.txt";
 
+		// NOTE: An example of testing the boundary condition when removing an item that may not exist
+		final String TESTFILE = "resources/inventory_jreyes";
 		System.out.printf("Test file: %s \n", TESTFILE);
 
 		System.out.println("Garbage collection threshold = " + GARBAGE_COLLECTION_THRESHOLD);
