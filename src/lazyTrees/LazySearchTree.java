@@ -183,11 +183,10 @@ public class LazySearchTree<E extends Comparable< ? super E > >
      */
     protected LazySTNode findMin(LazySTNode root )
     {
-
         if (root == null)
             return null;
         if(root.lftChild != null)
-            return root.lftChild;
+            return findMin(root.lftChild);
         if(!root.deleted)
             return root;
         return findMin(root.rtChild);
@@ -205,7 +204,7 @@ public class LazySearchTree<E extends Comparable< ? super E > >
         if (root == null)
             return null;
         if(root.rtChild != null)
-            return root.rtChild;
+            return findMax(root.rtChild);
         if(!root.deleted)
             return root;
         return findMax(root.lftChild);
