@@ -17,8 +17,7 @@ public class SuperMarket
 {
 	public static final boolean SHOW_DETAILS = true;
 
-	// TODO: Define the functor class PrintObject to traverse and print out data 
-	//       from LazySearchTree.
+
 	PrintObject<Item> printObject = new PrintObject<Item>();
 
 	// The data structure, which we use to add and remove items.
@@ -56,8 +55,7 @@ public class SuperMarket
 		// If the item is not found, add the temporary object as another node (category) to the tree.
 		if (!isFound)
 		{
-			// TODO: Modify insert method to work with lazy deletion such that it updates
-			//       both hard and soft sizes. 
+
 			inventory.insert(tmp);
 
 			// NOTE: Need to check if the item was lazily deleted, then we need to increment the count
@@ -130,7 +128,6 @@ public class SuperMarket
 		if (countDeleted < GARBAGE_COLLECTION_THRESHOLD) 
 			return false;
 
-		// TODO: Hard remove nodes marked as "deleted" from the tree.
 		boolean result = inventory.collectGarbage();
 
 		System.out.println("\n" + message);
@@ -151,9 +148,7 @@ public class SuperMarket
 	{
 		System.out.println("\n" + message);
 
-		// TODO: Modify the protected methods findMin() and findMax() to implement lazy deletion. 
-		//       Searches from the root of the tree and returns the minimum and maximum node that 
-		//       has NOT been "deleted". 
+
 		try
 		{
 			Item min = inventory.findMin();
@@ -194,17 +189,14 @@ public class SuperMarket
 
 		System.out.println( "\nTesting traversing \"hard\" inventory:");
 
-		// TODO: First, rename the public/private pair traverse() method of FHsearch_tree to traverseHard() method.
-		//       Then, reuse this public/private pair of methods to traverses the tree
-		//       and displays all the nodes.
+
 		// NOTE: Here, we call the public version.
 		inventory.traverseHard(printObject);
 
 
 		System.out.println( "\n\nTesting traversing \"soft\" inventory:");
 
-		// TODO: Define a public/private pair of methods that traverses the tree
-		//       and displays only nodes that have not been lazily deleted. 
+
 		// NOTE: Here, we call the public version.
 		inventory.traverseSoft(printObject);
 		System.out.println("\n");
@@ -212,7 +204,7 @@ public class SuperMarket
 
 	public static void main(String[] args) 
 	{
-		// TODO: Tests the LazySearchTree by adding and removing items from the inventory
+
 		final String TESTFILE = "resources/inventory_log.txt";	// Directory path for plain-text file
 
 		// NOTE: Short inventory file to test for removal of root node from LazySearchTree
@@ -297,8 +289,6 @@ public class SuperMarket
 					market.showFirstAndLastItem(message);
 
 				// Checks if we need to collect garbage.
-				// TODO: Add collectGarbage() to your LazySearchTree class such that it removes
-				//       all nodes that have been marked for lazy deletion. 
 				market.cleanInventory(message);
 			}
 			input.close();
