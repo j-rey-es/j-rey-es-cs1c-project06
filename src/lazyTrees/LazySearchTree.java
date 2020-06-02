@@ -145,6 +145,17 @@ public class LazySearchTree<E extends Comparable< ? super E > >
         traverseSoft(func, mRoot);
     }
 
+    /**
+     *  Performs hard deletion on soft deleted nodes
+     * Calls private collectGarbage
+     *
+     * @return boolean, true if garbage collection is successful
+     */
+    public boolean collectGarbage()
+    {
+        collectGarbage(mRoot);
+        return(mSize == mSizeHard);
+    }
     /** Clones object
      *
      * @return object, Cloned object
@@ -162,14 +173,7 @@ public class LazySearchTree<E extends Comparable< ? super E > >
         return newObject;
     }
 
-    /**
-     * Performs hard deletion on soft deleted nodes
-     * Calls private collectGarbagge
-     */
-    public void collectGarbage()
-    {
 
-    }
     // private helper methods ----------------------------------------
     /**
      *Private function for public facing pair
@@ -321,14 +325,14 @@ public class LazySearchTree<E extends Comparable< ? super E > >
             // found the node
         else if (root.lftChild != null && root.rtChild != null)
         {
-            root.data = findMin(root.rtChild).data;
+            root.data = findMinHard(root.rtChild).data;
             root.rtChild = removeHard(root.rtChild, root.data);
         }
         else
         {
             root =
                     (root.lftChild != null)? root.lftChild : root.rtChild;
-            mSize--;
+            mSizeHard--;
         }
         return root;
     }
@@ -393,6 +397,22 @@ public class LazySearchTree<E extends Comparable< ? super E > >
         if (compareResult == 0 && root.deleted)
             return null;
         return root;   // found
+    }
+    /**
+     *  Performs hard deletion on soft deleted nodes
+     * Calls private collectGarbage
+     *
+     * @return boolean, true if garbage collection is successful
+     */
+    protected LazySTNode collectGarbage(LazySTNode root)
+    {
+        if (root == null)
+            return null;
+        if (root.deleted)
+            removeHard(root,root.data);
+        collectGarbage(root.lftChild);
+        collectGarbage(root.rtChild);
+        return root;
     }
 
     /**
