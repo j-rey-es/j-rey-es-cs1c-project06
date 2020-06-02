@@ -407,10 +407,11 @@ public class LazySearchTree<E extends Comparable< ? super E > >
     {
         if (root == null)
             return null;
+
+        root.lftChild = collectGarbage(root.lftChild);
+        root.rtChild = collectGarbage(root.rtChild);
         if (root.deleted)
-            removeHard(root,root.data);
-        collectGarbage(root.lftChild);
-        collectGarbage(root.rtChild);
+            root = removeHard(root,root.data);
         return root;
     }
 
